@@ -43,7 +43,7 @@ const RepositoryList = () => {
   if (loading)
     return (
       <div className="w-full h-screen flex items-center justify-center">
-        <ImSpinner9 size={40} className=" animate-spin text-indigo-500"/>
+        <ImSpinner9 size={40} className=" animate-spin text-violet-500"/>
       </div>
     );
   if (error)

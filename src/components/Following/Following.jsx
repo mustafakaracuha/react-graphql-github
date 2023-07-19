@@ -36,7 +36,7 @@ const Following = () => {
   if (loading)
     return (
       <div className="w-full h-screen flex items-center justify-center">
-        <ImSpinner9 size={40} className=" animate-spin text-indigo-500"/>
+        <ImSpinner9 size={40} className=" animate-spin text-violet-500"/>
       </div>
     );
   if (error)
@@ -96,6 +96,7 @@ const Following = () => {
         {
         followersUser?.map((user) => (
           <div
+            onClick={() => window.open(user.url,"_blank")}
             className="group/item w-full h-[200px] flex flex-col items-center justify-center col-span-2 rounded-2xl p-5 cursor-pointer transition-all duration-300"
             key={user.login}
           > 
