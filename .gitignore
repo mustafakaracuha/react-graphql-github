@@ -2,3 +2,5 @@ node_modules
 
 # production
 /build
+
+.DS_Store
