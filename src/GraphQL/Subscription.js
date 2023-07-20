@@ -1,6 +1,6 @@
 import { gql } from "@apollo/client";
 
-const GET_USER_REPOSITORIES = gql`
+export const GET_USER_REPOSITORIES = gql`
   query GetUserRepositories($username: String!) {
     user(login: $username) {
       avatarUrl
@@ -44,4 +44,3 @@ const GET_USER_REPOSITORIES = gql`
   }
 `;
 
-export default GET_USER_REPOSITORIES;

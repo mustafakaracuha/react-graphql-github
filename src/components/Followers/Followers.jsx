@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import { useDebounce } from "use-debounce";
 import { useLazyQuery } from "@apollo/client";
 
-import GET_USER_REPOSITORIES from "../../apollo/apolloQuery";
+import {GET_USER_REPOSITORIES} from "../../GraphQL/Subscription";
 import Loading from "../../pages/Loading/Loading";
 import Error from "../../pages/Error/Error";
 

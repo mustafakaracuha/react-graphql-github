@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 
 import { useDebounce } from "use-debounce";
-import { useLazyQuery } from "@apollo/client";
+import {useLazyQuery } from "@apollo/client";
 
 import moment from "moment";
 
@@ -11,9 +11,10 @@ import { FaEye } from "react-icons/fa";
 import { FaCodeFork } from "react-icons/fa6";
 import { RiGitRepositoryFill } from "react-icons/ri";
 
-import GET_USER_REPOSITORIES from "../../apollo/apolloQuery";
+import {GET_USER_REPOSITORIES} from "../../GraphQL/Subscription";
 import Loading from "../../pages/Loading/Loading";
 import Error from "../../pages/Error/Error";
+
 
 const RepositoryList = () => {
   const [username, setUserName] = useState(
