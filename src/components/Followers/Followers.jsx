@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 
-import { useDebounce } from "use-debounce";
+import { FaSearch } from "react-icons/fa";
 import { useLazyQuery } from "@apollo/client";
 
-import {GET_USER_REPOSITORIES} from "../../GraphQL/Subscription";
+import { GET_USER_REPOSITORIES } from "../../GraphQL/Subscription";
 import Loading from "../../pages/Loading/Loading";
 import Error from "../../pages/Error/Error";
 
@@ -14,39 +14,59 @@ const Followers = () => {
       ? localStorage.getItem("user")
       : "mustafakaracuha"
   );
-  const [debouncedUsername] = useDebounce(username, 1000);
 
+  const [searchQuery, setSearchQuery] = useState("");
   const [getUserData, { loading, error, data }] = useLazyQuery(
     GET_USER_REPOSITORIES,
-    { variables: { username: debouncedUsername } }
+    { variables: { username: username } }
   );
 
   useEffect(() => {
-    if (debouncedUsername.trim() !== "") {
-      getUserData();
-    }
-  }, [debouncedUsername, getUserData]);
+    getUserData();
+  }, []);
 
-  const handleSearchUser = (event) => {
-    localStorage.setItem("user", event.target.value);
-    setUserName(event.target.value);
+  const handleChange = (event) => {
+    setSearchQuery(event.target.value);
+  };
+
+  const handleUsernameSearch = () => {
+    if (searchQuery.trim() !== "") {
+      localStorage.setItem("user", searchQuery);
+      setUserName(searchQuery);
+      setSearchQuery("");
+    }
   };
 
   const user = data?.user;
-  const followersUser = user?.followers?.nodes;
+  const followersUser = user?.following?.nodes;
   const avatarUrl = user?.avatarUrl;
 
   if (loading) return <Loading />;
-  if (error) return <Error error={error} handleSearchUser={handleSearchUser} />;
+  if (error)
+    return (
+      <Error
+        error={error}
+        searchQuery={searchQuery}
+        handleChange={handleChange}
+        handleUsernameSearch={handleUsernameSearch}
+      />
+    );
 
   return (
     <div className="w-full min-h-screen bg-gray-100 pr-44 pl-44 pt-10 pb-10">
       <div className="w-full h-[80px] flex items-center justify-center col-span-12 bg-transparent mb-5 rounded-3xl">
         <input
-          onChange={handleSearchUser}
+          value={searchQuery}
+          onChange={handleChange}
           placeholder="Search User"
-          className="w-full h-[80px] bg-white rounded-3xl pl-10 text-2xl transition-all duration-400 outline-transparent focus:outline-[#e7acd9]"
+          className="w-full h-[80px] bg-white rounded-3xl pl-10 text-2xl transition-all duration-400 outline-none border-[3px] border-transparent focus:border-[#e7acd9]"
         />
+        <button
+          onClick={handleUsernameSearch}
+          className="w-[100px] h-20 bg-white rounded-3xl ml-3 flex items-center justify-center transition-all duration-300 active:scale-110 border-[3px] border-transparent active:border-[#e7acd9]"
+        >
+          <FaSearch size={25} />
+        </button>
       </div>
       <div className="w-full h-[460px] bg-white rounded-3xl overflow-hidden">
         <div className="w-full h-[200px] rounded-tl-3xl rounded-tr-3xl  bg-gradient-to-r from-[#7877a6] to-[#e7acd9] col-span-12 flex items-center justify-between relative mb-20">
