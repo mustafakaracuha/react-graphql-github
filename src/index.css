@@ -3,13 +3,13 @@
 @tailwind utilities;
 
 * {
-padding: 0;
-margin: 0;
-font-family: 'Rubik', sans-serif;
+  padding: 0;
+  margin: 0;
+  font-family: "Rubik", sans-serif;
 }
 
 a.active {
-color: #d780c3;
-font-weight: 900;
-font-size: 19px;
+  color: #d780c3;
+  font-weight: 900;
+  font-size: 19px;
 }

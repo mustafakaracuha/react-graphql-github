@@ -1,4 +1,4 @@
-import { gql } from '@apollo/client';
+import { gql } from "@apollo/client";
 
 const GET_USER_REPOSITORIES = gql`
   query GetUserRepositories($username: String!) {
@@ -37,6 +37,7 @@ const GET_USER_REPOSITORIES = gql`
           forks {
             totalCount
           }
+          createdAt
         }
       }
     }
