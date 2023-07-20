@@ -1,4 +1,4 @@
-# React Js & Graphql Github App
+# React Js & GraphQl Github App
 
 ## Technologies and Libraries
 
