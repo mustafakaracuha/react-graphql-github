@@ -15,6 +15,6 @@ https://react-graphql-github.vercel.app/
   
 ## App Screenshot
 
-<img align="center" width="600" src="https://github.com/mustafakaracuha/react-graphql-github/blob/main/src/assets/app.png" />
+<img align="center" width="700" src="https://github.com/mustafakaracuha/react-graphql-github/blob/main/src/assets/app.png" />
 
   
