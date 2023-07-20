@@ -1,7 +1,7 @@
 import { gql } from "@apollo/client";
 
 export const GET_USER_REPOSITORIES = gql`
-  query GetUserRepositories($username: String!) {
+  query GetUserRepositories($username: String!, $orderBy: OrderDirection!) {
     user(login: $username) {
       avatarUrl
       name
@@ -25,7 +25,7 @@ export const GET_USER_REPOSITORIES = gql`
           url
         }
       }
-      repositories(first: 100) {
+      repositories(first: 100, orderBy: { field: CREATED_AT, direction: $orderBy }) {
         totalCount
         nodes {
           name

@@ -21,9 +21,11 @@ const RepositoryList = () => {
       : "mustafakaracuha"
   );
   const [searchQuery, setSearchQuery] = useState("");
+  const [orderBy, setOrderBy] = useState('DESC')
+
   const [getUserData, { loading, error, data }] = useLazyQuery(
     GET_USER_REPOSITORIES,
-    { variables: { username: username } }
+    { variables: { username: username, orderBy: orderBy } }
   );
 
   useEffect(() => {
