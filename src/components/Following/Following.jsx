@@ -99,7 +99,7 @@ const Following = () => {
           </div>
           <div className="text-gray-600 mt-3">
             <NavLink className="ml-5" to="/">
-              Repositorys ({user?.repositories.totalCount})
+             Repositories ({user?.repositories.totalCount})
             </NavLink>
             <NavLink to="/followers" className="ml-3">
               Followers ({user?.followers.totalCount})

@@ -103,7 +103,7 @@ const RepositoryList = () => {
           </div>
           <div className="text-gray-600 mt-3">
             <NavLink className="ml-5" to="/">
-              Repositorys ({user?.repositories.totalCount})
+            Repositories ({user?.repositories.totalCount})
             </NavLink>
             <NavLink to="/followers" className="ml-3">
               Followers ({user?.followers.totalCount})
@@ -118,7 +118,7 @@ const RepositoryList = () => {
       <div className="w-full grid grid-cols-12 pt-10 gap-5">
         <div className="w-full col-span-12 flex items-center justify-between">
           <p className="w-full col-span-12 mb-5 ml-5 text-[40px]">
-            Your Repositorys
+            Your Repositories
           </p>
           <p className="text-[30px]">{user?.repositories.totalCount}</p>
         </div>
